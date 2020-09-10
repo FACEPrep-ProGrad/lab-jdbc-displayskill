@@ -43,6 +43,7 @@ If you haven't downloaded OJDBC driver (ojdbc6.jar), then download using this li
 
 ![1 2](https://user-images.githubusercontent.com/61002120/76416050-5807d380-63c0-11ea-8d52-9e8750e800f9.png)
 
+
 ## Progression 0:
 1. Right click on src folder and select new - file and name it as jdbc.properties.
 2. You can use the jdbc properties given below in the NOTE section.
@@ -50,32 +51,47 @@ If you haven't downloaded OJDBC driver (ojdbc6.jar), then download using this li
 ## Progression 1:
 
 1. Create a class called as `ConnectionManager` inside the utility package.
-2. Create a method public static Connection getConnection() which returns a connection object. 
+2. Create a method public static Connection getConnection() which returns a connection object.
 3. Use the method public static Properties loadPropertiesFile() to load the jdbc properties from the jdbc.properties file.
+
 
 ## Progression 2:
 
-1. Create a class called as `Skill.java` inside the model package with below attributes,
-	- Long skilld 
-	- String skillName  
-2. Include getter and setter methods for all the attributes.
-3. Include constructor with below arguments public Skill(skilld, skillName)
+1. Create a class called as `skill` with below attributes,
+	- skillld - Long 
+	- skillName - String 
+2. Include appropriate getters and setters.
+3. Include getter and setter method for all the attributes Include constructor with below arguments, public Skill(skillId, skillName).
 
 ## Progression 3:
 
-1. Create a dao-class called as `SkillDAO.java` inside dao package with below methods to handle all database related operations
-	- ***public List< Skill > listAll Skills ()***
-	- The above method is used to fetch all the skills from skill table and returns the list of skills.
-	- Display the skills in ascending order based on name. 
-	
+1. Create a dao-class called as `SkillDAO` with the below method,
+	- public Skill getSkillBylD(Long id) - Method used to fetch the skill information from the database based on the skill id.
+
 ## Progression 4:
 
-1. Create a controller-class called as Main inside the controller package.
-2. Create appropriate objects for the Skill and SkillDAO.
-3. Refer sample output for output format.
+2. Create a class called as `Player` with below attributes,
+	- playerld - Long 
+	- name - String 
+	- country - String 
+	- skill - Skill 
+2. Include getter and setter method for all the attributes.
+3. Include constructor with below arguments - public Player(Long playerld,String name, String country,Skill skill)
 
-## Points to remember:
-_DAO Layer - Data access layer provides the gateway to create, reterive, update or delete any data in the database. All database related operations will be performed in this layer._
+
+## Progression 5:
+
+1. Create a class called as `PlayerDAO` with below methods, 
+	- **public List< Player > getAllPlayers() - Method used to fetch all the players and their corresponding skill from the database.**
+	
+## Progression 6:
+1. Create a controller called as Main inside the controller package.
+2. Create appropriate objects for the classes - Player, PlayerDAO, Skill and SkillDAO.
+3. Refer sample output given below for output format.
+
+
+![1 2](https://user-images.githubusercontent.com/61002120/76416050-5807d380-63c0-11ea-8d52-9e8750e800f9.png)
+
 
 ### Note:
 
@@ -98,16 +114,16 @@ url=jdbc:oracle:thin:@localhost:1521:xe
 username=your_username
 password=your_password
 
-```
-
+```   
 **Sample Output**
-
-> List of all skills 
-> 1) All Rounder 
-> 2) Batting 
-> 3) Bowling 
-> 4) Wicket Keeping Batting 
-
-
+```
+ List of all player and their skill
+ Id 	Name 		Country 	Skill 
+ 26 	Aaron Finch 	Australia 	Batting 
+ 80 	AB de Villiers 	South Africa 	Batting 
+ 82 	Abu Nechim 	India 		Bowling 
+ 85 	Adam Milne 	New Zealand 	Bowling 
+ 16 	Akshdeep Nath 	India 		All Rounder
+```
 
 Happy Coding ❤️
