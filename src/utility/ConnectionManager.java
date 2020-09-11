@@ -32,4 +32,8 @@ public class ConnectionManager {
 		input.close();
 		return properties;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> b2c53e51b83bc10b4f1933346c574ef0827c7150
